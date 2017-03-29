@@ -108,7 +108,7 @@ function testDriver(side1, side2, side3){
   }
 }
 
-// tell me all the things!!
+// tell me if all the things work correctly
 function triangleDriver(side1, side2, side3) {
   console.log("\nThe results of " + side1 + ", " + side2 + " and " + side3 + " are: ");
   if (testSides(side1, side2, side3) != true) {
@@ -136,14 +136,13 @@ function triangleDriver(side1, side2, side3) {
 }
 
 // let's go!!
-testDriver(1, 2, 3);
-testDriver(2, 2, 4);
+// testDriver(1, 2, 3);
+// testDriver(2, 2, 4);
 
-/*
-triangleDriver(1, 2, 3);
-triangleDriver(2, 2, 4);
-triangleDriver(5, 5, 5);
-triangleDriver(5, 12, 13);
-triangleDriver(0, 2, 5); // fail
+
+triangleDriver(1, 2, 3);    // scalene
+triangleDriver(2, 2, 4);    // isosceles
+triangleDriver(5, 5, 5);    // equilateral
+triangleDriver(5, 12, 13);  // right angle
+triangleDriver(0, 2, 5);    // fail
 triangleDriver(3, 33, 333); // fail
-*/
