@@ -17,4 +17,4 @@
 
 [Yahtzee]: https://github.com/heatherdesigns/js-katas/blob/master/yahtzee.js
 
-[selftaughtjs]: http://www.selftaughtjs.com/algorithm-sundays-converting-roman-numerals/
+[selftaught.js]: http://www.selftaughtjs.com/algorithm-sundays-converting-roman-numerals/
