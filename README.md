@@ -2,7 +2,7 @@
 ====================
 
 * [Triangle Kata]
-* [Roman Numerals Kata] - sourced from selftaughtjs.com
+* [Roman Numerals Kata] - sourced from [selftaughtjs.com]
 * [Roman Numerals Kata - console version]
 * [Roman Numerals Kata - browser version]
 * [Yahtzee]
@@ -16,3 +16,5 @@
 [Roman Numerals Kata - browser version]: https://github.com/heatherdesigns/js-katas/tree/master/Roman%20Numeral%20Converter
 
 [Yahtzee]: https://github.com/heatherdesigns/js-katas/blob/master/yahtzee.js
+
+[selftaughtjs]: http://www.selftaughtjs.com/algorithm-sundays-converting-roman-numerals/
