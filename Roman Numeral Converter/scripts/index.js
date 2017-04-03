@@ -1,18 +1,15 @@
 function numberToRomanNumeral(userInput){
 
-  const ORIG_NUMBER = userInput;
-	let numerical_balance = userInput;
 	let roman_numeral = "";
 
-  if (isOutsideRange(ORIG_NUMBER) || isAstring(ORIG_NUMBER)) {
-    throw ORIG_NUMBER + " is an unacceptable answer. Please enter a number between 1 and 9999.";
+  if (isOutsideRange(userInput) || isAstring(userInput)) {
+    throw userInput + " is an unacceptable answer. Please enter a number between 1 and 9999.";
   }
 
-// I'm not sure I like the names of these variables. They seem confusing. Think about it & consider other names.
-let balance_after_thousands = findThousands();
-let balance_after_hundreds = findHundreds();
-let balance_after_tens = findTens();
-findOnes();
+let thousands = findThousands(userInput);
+let hundreds = findHundreds(thousands);
+let tens = findTens(hundreds);
+findOnes(tens);
 
 	function isOutsideRange(userInput){
 		if (userInput > 9999 || userInput <= 0) {
@@ -36,94 +33,91 @@ findOnes();
     return false;
   }
 
-	function findThousands(){
-    while (numerical_balance >= 1000 && numerical_balance < 10000) {
+	function findThousands(number){
+    while (number >= 1000 && number < 10000) {
 			roman_numeral += "M";
-			numerical_balance -= 1000;
-      console.log("After thousands: " + numerical_balance);
+			number -= 1000;
+      console.log("After thousands: " + number);
 		}
-    return numerical_balance;
+    return number;
 	}
 
-	function findHundreds(){
-		while (balance_after_thousands < 1000 && balance_after_thousands >= 100) {
-			if (balance_after_thousands >= 900) {
+	function findHundreds(number){
+		while (number < 1000 && number >= 100) {
+			if (number >= 900) {
 				roman_numeral += "CM";
-				balance_after_thousands -= 900;
+				number -= 900;
 			}
 
-			else if (balance_after_thousands >= 500) {
+			else if (number >= 500) {
 				roman_numeral += "D";
-				balance_after_thousands -= 500;
+				number -= 500;
 			}
 
-			else if (balance_after_thousands >= 400) {
+			else if (number >= 400) {
 				roman_numeral += "CD";
-				balance_after_thousands -= 400;
+				number -= 400;
 			}
 
-			else if ((balance_after_thousands < 900 && balance_after_thousands > 500) || (balance_after_thousands < 400 && balance_after_thousands >= 100)){
+			else if ((number < 900 && number > 500) || (number < 400 && number >= 100)){
 				roman_numeral += "C";
-				balance_after_thousands -= 100;
+				number -= 100;
 			}
 		}
-    numerical_balance = balance_after_thousands;
-    console.log("After hundreds: " + numerical_balance);
-    return numerical_balance;
+    console.log("After hundreds: " + number);
+    return number;
 	}
 
-	function findTens() {
-		while (balance_after_hundreds < 100 && balance_after_hundreds >= 10){
-			if (balance_after_hundreds >= 90) {
+	function findTens(number) {
+		while (number < 100 && number >= 10){
+			if (number >= 90) {
 				roman_numeral += "XC";
-				balance_after_hundreds -= 90;
+				number -= 90;
 			}
 
-			else if (balance_after_hundreds >= 50) {
+			else if (number >= 50) {
 				roman_numeral += "L";
-				balance_after_hundreds -= 50;
+				number -= 50;
 			}
 
-			else if (balance_after_hundreds >= 40) {
+			else if (number >= 40) {
 				roman_numeral += "XL";
-				balance_after_hundreds -= 40;
+				number -= 40;
 			}
 
-			else if ((balance_after_hundreds < 90 && balance_after_hundreds > 50) || (balance_after_hundreds < 40 && balance_after_hundreds >= 10)) {
+			else if ((number < 90 && number > 50) || (number < 40 && number >= 10)) {
 				roman_numeral += "X";
-				balance_after_hundreds -= 10;
+				number -= 10;
 			}
 		}
-    numerical_balance = balance_after_hundreds;
-    console.log("After tens: " + numerical_balance);
-    return numerical_balance;
+    console.log("After tens: " + number);
+    return number;
 	}
 
-	function findOnes() {
-		while (balance_after_tens < 10 && balance_after_tens >= 1) {
-			if (balance_after_tens >= 9) {
+	function findOnes(number) {
+		while (number < 10 && number >= 1) {
+			if (number >= 9) {
 				roman_numeral += "IX";
-				balance_after_tens -= 9;
+				number -= 9;
 			}
 
-			else if (balance_after_tens >= 5) {
+			else if (number >= 5) {
 				roman_numeral += "V";
-				balance_after_tens -= 5;
+				number -= 5;
 			}
 
-			else if (balance_after_tens >= 4) {
+			else if (number >= 4) {
 				roman_numeral += "IV";
-				balance_after_tens -= 4;
+				number -= 4;
 			}
 
-			else if ((balance_after_tens < 9 && balance_after_tens > 5) || (balance_after_tens < 4 && balance_after_tens >= 1)) {
+			else if ((number < 9 && number > 5) || (number < 4 && number >= 1)) {
 				roman_numeral += "I";
-				balance_after_tens -= 1;
+				number -= 1;
 			}
 		}
-    numerical_balance = balance_after_tens;
-    console.log("Numerical balance should be zero. It is " + numerical_balance);
-    return numerical_balance;
+    console.log("Numerical balance should be zero. It is " + number);
+    return number;
 	}
 
 	console.log("End of number to roman numeral conversion.");
