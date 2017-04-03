@@ -1,6 +1,6 @@
 function numberToRomanNumeral(userInput){
 
-	let roman_numeral = "";
+	let roman_numeral = ""; // make a class whose state is the current roman numeral
 
   if (isOutsideRange(userInput) || isAstring(userInput)) {
     throw userInput + " is an unacceptable answer. Please enter a number between 1 and 9999.";
@@ -26,7 +26,7 @@ findOnes(tens);
     for(let count = 0; count < letters.length; count++) {
       userInput = userInput.toLowerCase();
      	if (userInput.charAt(0) == letters[count]) {
-        console.log(userInput.charAt(0) + " This isn't a number!");   // to make sure I'm catching the letters.
+        console.log(userInput.charAt(0) + " This isn't a number!");
         return true;
       }
     }
@@ -39,7 +39,7 @@ findOnes(tens);
 			number -= 1000;
       console.log("After thousands: " + number);
 		}
-    return number;
+    return number; // return roman numerla AND number
 	}
 
 	function findHundreds(number){

@@ -3,7 +3,7 @@
 * April 3, 2017
 */
 
-function numberToRomanNumeral(number){
+function numberToRomanNumeral(number){ // make a class whose state is the current roman numeral
 
 	let roman_numeral = "";
 
@@ -24,7 +24,7 @@ function numberToRomanNumeral(number){
 			roman_numeral += "M";
 			number -= 1000;
 		}
-		return number;
+		return number; // return hash with roman numeral AND number
 	}
 
 	function findHundreds(number){
