@@ -1,17 +1,17 @@
 /*http://codingdojo.org/kata/RomanNumerals/
 * Version 2
-* April 3, 2017
+* April 4, 2017
 */
 
 function numberToRomanNumeral(number){ // make a class whose state is the current roman numeral
 
 	let roman_numeral = "";
 
-	isOutsideRange(number);
-	let thousands = findThousands(number);
-	let hundreds = findHundreds(thousands);
-	let tens = findTens(hundreds);
-	findOnes(tens);
+	//isOutsideRange(number); -- moved to bottom
+	//thousands(number); -- moved to bottom
+	//let hundreds = findHundreds(thousands); -- moved to bottom
+	//let tens = findTens(hundreds);
+	//findOnes(tens);
 
 	function isOutsideRange(number){
 		if (number > 9999 || number <= 0) {
@@ -19,15 +19,15 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 		}
 	}
 
-	function findThousands(number){
+	let thousands = function (number) {
 		while (number >= 1000 && number < 10000) {
 			roman_numeral += "M";
 			number -= 1000;
 		}
 		return number; // return hash with roman numeral AND number
-	}
+	};
 
-	function findHundreds(number){
+	let hundreds = (number) => {
 		while (number < 1000 && number >= 100) {
 			if (number >= 900) {
 				roman_numeral += "CM";
@@ -50,9 +50,9 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 			}
 		}
 		return number;
-	}
+	};
 
-	function findTens(number) {
+	let tens = (number) => {
 		while (number < 100 && number >= 10){
 			if (number >= 90) {
 				roman_numeral += "XC";
@@ -75,9 +75,9 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 			}
 		}
 		return number;
-	}
+	};
 
-	function findOnes(number) {
+	let ones = (number) => {
 		while (number < 10 && number >= 1) {
 			if (number >= 9) {
 				roman_numeral += "IX";
@@ -100,7 +100,13 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 			}
 		}
 		return number;
-	}
+	};
+
+	isOutsideRange(number);
+	thousands(number);
+	hundreds(thousands);
+	tens(hundreds);
+	ones(tens);
 
 	if (number < 10000 && number > 0) {
 		return console.log("The number " + number + " converts to the Roman Numeral " + roman_numeral + ".");
