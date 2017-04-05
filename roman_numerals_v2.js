@@ -17,12 +17,7 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 			roman_numeral += "M";
 			number -= 1000;
 		}
-		// create hash
 		let numRomanSet = { num: number, roman: roman_numeral };
-		// let's see what it looks like -- to be removed! --
-		console.log("The number after thousands is: " + numRomanSet["num"]);
-		console.log("The roman numeral after thousands is: " + numRomanSet["roman"]);
-		// return hash with number AND roman numeral
 		return numRomanSet;
 	};
 
@@ -49,12 +44,7 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 				number -= 100;
 			}
 		}
-		// create hash
 		let numRomanSet = { num: number, roman: roman_numeral };
-		// let's see what it looks like -- to be removed! --
-		console.log("The number after hundreds is: " + numRomanSet["num"]);
-		console.log("The roman numeral after hundreds is: " + numRomanSet["roman"]);
-		// return hash with number AND roman numeral
 		return numRomanSet;
 	};
 
@@ -81,12 +71,7 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 				number -= 10;
 			}
 		}
-		// create hash
 		let numRomanSet = { num: number, roman: roman_numeral };
-		// let's see what it looks like -- to be removed! --
-		console.log("The number after hundreds is: " + numRomanSet["num"]);
-		console.log("The roman numeral after hundreds is: " + numRomanSet["roman"]);
-		// return hash with number AND roman numeral
 		return numRomanSet;
 	};
 
@@ -113,41 +98,22 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 				number -= 1;
 			}
 		}
-		// create hash
 		let numRomanSet = { num: number, roman: roman_numeral };
-		// let's see what it looks like -- to be removed! --
-		console.log("The number after hundreds is: " + numRomanSet["num"]);
-		console.log("The roman numeral after hundreds is: " + numRomanSet["roman"]);
-		// return hash with number AND roman numeral
 		return numRomanSet;
 	};
 
 	// after section above is converted to a class, place the section below into a driver file
 
 	isOutsideRange(number);
-
 	let thousands = findThousands(number);
-	console.log(Object.values(thousands)[0]); // number!
-	console.log(Object.values(thousands)[1]); // roman numeral!
-
-	let sendToHundreds = (Object.values(thousands)[0]); // assign number to send into the hundreds function
-
+	let sendToHundreds = (Object.values(thousands)[0]);
 	let hundreds = findHundreds(sendToHundreds);
-	console.log(Object.values(hundreds)[0]); // number!
-	console.log(Object.values(hundreds)[1]); // roman numeral!
-
-	let sendToTens = (Object.values(hundreds)[0]); // assign number to send into the tens function
-
+	let sendToTens = (Object.values(hundreds)[0]);
 	let tens = findTens(sendToTens);
-	console.log(Object.values(tens)[0]); // number!
-	console.log(Object.values(tens)[1]); // roman numeral!
-
 	let sendToOnes = (Object.values(tens)[0]);
-
 	let ones = findOnes(sendToOnes);
 
 	if (number < 10000 && number > 0) {
-		// need to add roman numeral reference back to this statement.
 		return console.log("The number " + number + " converts to the Roman Numeral "
 		+ Object.values(thousands)[1] + Object.values(hundreds)[1]
 		+ Object.values(tens)[1] + Object.values(ones)[1] + ".");
@@ -156,6 +122,6 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 }
 
 numberToRomanNumeral(3856);
-// numberToRomanNumeral(127);
+numberToRomanNumeral(127);
 // numberToRomanNumeral(0);
 // numberToRomanNumeral(10567);
