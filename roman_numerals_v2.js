@@ -1,17 +1,12 @@
 /*http://codingdojo.org/kata/RomanNumerals/
 * Version 2
-* April 4, 2017
+* April 5, 2017
 */
 
 function numberToRomanNumeral(number){ // make a class whose state is the current roman numeral
 
-	let roman_numeral = "";
-
-	//isOutsideRange(number); -- moved to bottom
-	//thousands(number); -- moved to bottom
-	//let hundreds = findHundreds(thousands); -- moved to bottom
-	//let tens = findTens(hundreds);
-	//findOnes(tens);
+	// working to eliminate this global variable
+	//let roman_numeral = "";
 
 	function isOutsideRange(number){
 		if (number > 9999 || number <= 0) {
@@ -20,11 +15,18 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 	}
 
 	let thousands = function (number) {
+		let roman_numeral = "";
 		while (number >= 1000 && number < 10000) {
 			roman_numeral += "M";
 			number -= 1000;
 		}
-		return number; // return hash with roman numeral AND number
+		// create hash
+		let numRomanSet = { num: number, roman: roman_numeral };
+		// let's see what it looks like -- to be removed! --
+		console.log("The number after thousands is: " + numRomanSet["num"]);
+		console.log("The roman numeral after thousands is: " + numRomanSet["roman"]);
+		// return hash with number AND roman numeral
+		return numRomanSet;
 	};
 
 	let hundreds = (number) => {
@@ -103,18 +105,26 @@ function numberToRomanNumeral(number){ // make a class whose state is the curren
 	};
 
 	isOutsideRange(number);
-	thousands(number);
-	hundreds(thousands);
-	tens(hundreds);
-	ones(tens);
+	// need to access hash values (working it!)  -------------------------------------
+	let newNumber = thousands(number);
+	console.log(newNumber);
+	console.log(Object.keys(newNumber));
+	console.log(Object.values(newNumber));
+	console.log(Object.values(newNumber)[0]); // number!
+	console.log(Object.values(newNumber)[1]); // roman numeral!
+
+	newNumber = hundreds(newNumber); // reassign and send into the next function
+	newNumber = tens(newNumber);
+	ones(newNumber);
 
 	if (number < 10000 && number > 0) {
-		return console.log("The number " + number + " converts to the Roman Numeral " + roman_numeral + ".");
+		// need to add roman numeral reference back to this statement.
+		return console.log("The number " + number + " converts to the Roman Numeral " + Object.values(newNumber)[1] + ".");
 	}
 
 }
 
 numberToRomanNumeral(3856);
-numberToRomanNumeral(127);
-numberToRomanNumeral(0);
-numberToRomanNumeral(10567);
+// numberToRomanNumeral(127);
+// numberToRomanNumeral(0);
+// numberToRomanNumeral(10567);
