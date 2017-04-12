@@ -7,6 +7,10 @@
 * [Roman Numerals Kata - browser version]
 * [Yahtzee]
 
+eslint
+======
+Run eslint with `npm test`.
+
 [Triangle Kata]: https://github.com/heatherdesigns/js-katas/blob/master/triangle.js
 
 [Roman Numerals Kata]: https://github.com/heatherdesigns/js-katas/blob/master/roman_numerals.js
