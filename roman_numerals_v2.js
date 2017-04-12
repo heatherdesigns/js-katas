@@ -1,6 +1,6 @@
 /*http://codingdojo.org/kata/RomanNumerals/
 * Version 2
-* April 10, 2017
+* April 11, 2017
 */
 
 class NumberToRomanNumeral {
@@ -111,35 +111,13 @@ let newNumber = new NumberToRomanNumeral(3856);
 const ORIG_NUM = newNumber.num;
 
 newNumber.isOutsideRange;
-console.log(newNumber.findThousands);
-console.log(Object.values(newNumber.findThousands)[0]);
-console.log(Object.values(newNumber.findThousands)[1]); // not displaying WHY????
-console.log(Object.keys(newNumber.findThousands)[0]);
-console.log(Object.keys(newNumber.findThousands)[1]);
-let thousandsNumber = Object.values(newNumber.findThousands)[0];
-let thousandsNumeral = Object.values(newNumber.findThousands)[1]; // not displaying
-console.log(thousandsNumeral); // not displaying
-
-
-console.log(newNumber.findHundreds);
-console.log(Object.values(newNumber.findHundreds)[0]);
-console.log(Object.values(newNumber.findHundreds)[1]);
-let hundredsNumber = Object.values(newNumber.findHundreds)[0];
-
-
-console.log(newNumber.findTens);
-console.log(Object.values(newNumber.findTens)[0]);
-console.log(Object.values(newNumber.findTens)[1]);
-let tensNumber = Object.values(newNumber.findTens)[0];
-
-console.log(newNumber.findOnes);
-console.log(Object.values(newNumber.findOnes)[0]);
-console.log(Object.values(newNumber.findOnes)[1]);
-let onesNumber = Object.values(newNumber.findOnes)[0];
-
+let thousandsOjb = newNumber.findThousands;
+let hundredsObj = newNumber.findHundreds;
+let tensObj = newNumber.findTens;
+let onesObj = newNumber.findOnes;
 
 if (((ORIG_NUM) < 10000) && ((ORIG_NUM) > 0)) {
 	console.log("The number " + ORIG_NUM + " converts to the Roman Numeral "
-	+ thousandsNumber + hundredsNumber
-	+ tensNumber + onesNumber + ".");
+	+ Object.values(thousandsOjb)[1] + Object.values(hundredsObj)[1]
+	+ Object.values(tensObj)[1] + Object.values(onesObj)[1] + ".");
 }
