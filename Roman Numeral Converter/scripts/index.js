@@ -1,13 +1,13 @@
 function numberToRomanNumeral(userInput){
 
-	let roman_numeral = ""; // make a class whose state is the current roman numeral
+	let roman_numeral = ""; // working to eliminate this global variable
 
   if (isOutsideRange(userInput) || isAstring(userInput)) {
     throw userInput + " is an unacceptable answer. Please enter a number between 1 and 9999.";
   }
 
 let thousands = findThousands(userInput);
-let hundreds = findHundreds(thousands);
+let hundreds = findHundreds(Object.values(thousands)[0]);
 let tens = findTens(hundreds);
 findOnes(tens);
 
@@ -19,7 +19,6 @@ findOnes(tens);
 	}
 
   function isAstring(userInput){
-    if (userInput) { console.log(userInput); }
 
     let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
                          "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -34,15 +33,20 @@ findOnes(tens);
   }
 
 	function findThousands(number){
+		let roman_numeral = "";
     while (number >= 1000 && number < 10000) {
 			roman_numeral += "M";
 			number -= 1000;
-      console.log("After thousands: " + number);
 		}
-    return number; // return roman numerla AND number
+		let numRomanSet = { num: number, roman: roman_numeral };
+    return (numRomanSet); // return roman numeral AND number
 	}
+	console.log("num thousands: " + Object.values(thousands)[0]);
+	console.log("roman numeral thousands: " + Object.values(thousands)[1]);
+	let number = Object.values(thousands)[0];
 
 	function findHundreds(number){
+		let roman_numeral = "";
 		while (number < 1000 && number >= 100) {
 			if (number >= 900) {
 				roman_numeral += "CM";
@@ -64,11 +68,16 @@ findOnes(tens);
 				number -= 100;
 			}
 		}
-    console.log("After hundreds: " + number);
-    return number;
+		let numRomanSet = { num: number, roman: roman_numeral };
+    return (numRomanSet); // return roman numeral AND number
 	}
 
+	console.log("num hundreds: " + Object.values(hundreds)[0]);
+	console.log("roman numeral hundreds: " + Object.values(hundreds)[1]);
+	number = Object.values(hundreds)[0];
+
 	function findTens(number) {
+		let roman_numeral = "";
 		while (number < 100 && number >= 10){
 			if (number >= 90) {
 				roman_numeral += "XC";
@@ -90,9 +99,13 @@ findOnes(tens);
 				number -= 10;
 			}
 		}
-    console.log("After tens: " + number);
-    return number;
+		let numRomanSet = { num: number, roman: roman_numeral };
+    return (numRomanSet); // return roman numeral AND number
 	}
+
+	console.log("num tens: " + Object.values(tens)[0]);
+	console.log("roman numeral tens: " + Object.values(tens)[1]);
+	number = Object.values(tens)[0];
 
 	function findOnes(number) {
 		while (number < 10 && number >= 1) {
