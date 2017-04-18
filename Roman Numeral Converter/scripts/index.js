@@ -1,15 +1,13 @@
 function numberToRomanNumeral(userInput){
 
-	let roman_numeral = ""; // working to eliminate this global variable
-
   if (isOutsideRange(userInput) || isAstring(userInput)) {
     throw userInput + " is an unacceptable answer. Please enter a number between 1 and 9999.";
   }
 
 let thousands = findThousands(userInput);
 let hundreds = findHundreds(Object.values(thousands)[0]);
-let tens = findTens(hundreds);
-findOnes(tens);
+let tens = findTens(Object.values(hundreds)[0]);
+let ones = findOnes(Object.values(tens)[0]);
 
 	function isOutsideRange(userInput){
 		if (userInput > 9999 || userInput <= 0) {
@@ -39,11 +37,10 @@ findOnes(tens);
 			number -= 1000;
 		}
 		let numRomanSet = { num: number, roman: roman_numeral };
-    return (numRomanSet); // return roman numeral AND number
+    return numRomanSet;
 	}
 	console.log("num thousands: " + Object.values(thousands)[0]);
 	console.log("roman numeral thousands: " + Object.values(thousands)[1]);
-	let number = Object.values(thousands)[0];
 
 	function findHundreds(number){
 		let roman_numeral = "";
@@ -69,12 +66,11 @@ findOnes(tens);
 			}
 		}
 		let numRomanSet = { num: number, roman: roman_numeral };
-    return (numRomanSet); // return roman numeral AND number
+    return numRomanSet;
 	}
 
 	console.log("num hundreds: " + Object.values(hundreds)[0]);
 	console.log("roman numeral hundreds: " + Object.values(hundreds)[1]);
-	number = Object.values(hundreds)[0];
 
 	function findTens(number) {
 		let roman_numeral = "";
@@ -100,14 +96,14 @@ findOnes(tens);
 			}
 		}
 		let numRomanSet = { num: number, roman: roman_numeral };
-    return (numRomanSet); // return roman numeral AND number
+    return numRomanSet;
 	}
 
 	console.log("num tens: " + Object.values(tens)[0]);
 	console.log("roman numeral tens: " + Object.values(tens)[1]);
-	number = Object.values(tens)[0];
 
 	function findOnes(number) {
+		let roman_numeral = "";
 		while (number < 10 && number >= 1) {
 			if (number >= 9) {
 				roman_numeral += "IX";
@@ -129,14 +125,15 @@ findOnes(tens);
 				number -= 1;
 			}
 		}
-    console.log("Numerical balance should be zero. It is " + number);
-    return number;
+		let numRomanSet = { num: number, roman: roman_numeral };
+		console.log("Numerical balance should be zero. It is " + Object.values(numRomanSet)[0]);
+		return numRomanSet;
 	}
 
 	console.log("End of number to roman numeral conversion.");
 
 	if (userInput < 10000) {
-		return roman_numeral;
+		return Object.values(thousands)[1] + Object.values(hundreds)[1] + Object.values(tens)[1] + Object.values(ones)[1];
 	}
 
 }
