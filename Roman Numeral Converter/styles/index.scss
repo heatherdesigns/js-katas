@@ -1,11 +1,11 @@
-body {
+.conversion-form {
 	background-color: lightseagreen;
   font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
 }
 
-button {
+.conversion-form__submit-btn {
   border: 0;
   border-radius: 0;
   background-color: darkcyan;
@@ -18,14 +18,9 @@ button {
   width: 68px;
 }
 
-header {
+.conversion-form__header {
   height: 100px;
   margin: auto;
-}
-
-h1,h2 {
-  font-weight: 300;
-  letter-spacing: 1px;
 }
 
 input {
@@ -36,14 +31,14 @@ input {
   width: 340px;
 }
 
-footer {
+.conversion-form__footer {
   color: darkslategray;
   font-size: 12px;
   padding-top: 10px;
   text-align: center;
 }
 
-.form {
+.conversion-form__main-content {
   background-color: white;
   padding: 1.2em;
   height: 320px;
@@ -53,17 +48,28 @@ footer {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-.display-roman-numeral {
+.conversion-form__display-roman-numeral {
   font-weight: 700;
   color: darkcyan;
 }
 
-.title {
+.conversion-form__title {
   margin: auto;
   text-align: center;
   width: 300px;
 }
 
-.user-input {
+.conversion-form__title h1 {
+	font-size: 2em;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+
+.conversion-form__sub-title {
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+
+.conversion-form__user-input {
   padding: 10px 45px 10px 0px;
 }

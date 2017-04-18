@@ -11,25 +11,25 @@
   <link rel="stylesheet" href="styles/index.scss">
 </head>
 
-<body>
-  <header>
+<body class=conversion-form>
+  <header class="conversion-form__header">
   </header>
 
   <main>
-    <div class="form">
-      <div class = "title">
+    <section class="conversion-form__main-content">  <!-- change to section -->
+      <header class = "conversion-form__title">
         <h1>Convert Numbers to Roman Numerals</h1>
+      </header>
+      <div class="conversion-form__user-input">
+        <input id="conversion-form__input-number" placeholder="  enter a number between 1 and 9999"/>
+        <button class="conversion-form__submit-btn" type="button">convert</button>
       </div>
-      <div class="user-input">
-        <input class ="number-box" id="the-number" placeholder="  enter a number between 1 and 9999"/>
-        <button class="submit-response" type="button">convert</button>
-      </div>
-      <h2>The Roman Numeral is:</h2>
-      <h2 class="display-roman-numeral"></h2>
-    </div>
+      <h2 class="conversion-form__sub-title">The Roman Numeral is:</h2>
+      <h2 class="conversion-form__display-roman-numeral"></h2>
+    </section>
   </main>
 
-  <footer>
+  <footer class="conversion-form__footer">
     <p>Heather Taylor, 2017 Sparkbox Apprentice</p>
   </footer>
 

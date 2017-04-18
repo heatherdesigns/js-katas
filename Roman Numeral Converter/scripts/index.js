@@ -138,9 +138,9 @@ let ones = findOnes(Object.values(tens)[0]);
 
 }
 
-var numberInput = document.querySelector('#the-number');
-var solutionButton = document.querySelector('.submit-response');
-var solutionDiv = document.querySelector('.display-roman-numeral');
+var numberInput = document.querySelector('#conversion-form__input-number');
+var solutionButton = document.querySelector('.conversion-form__submit-btn');
+var solutionDiv = document.querySelector('.conversion-form__display-roman-numeral');
 
 
 solutionButton.addEventListener('click', () => {
