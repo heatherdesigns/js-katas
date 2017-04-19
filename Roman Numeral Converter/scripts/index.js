@@ -138,20 +138,20 @@ let ones = findOnes(Object.values(tens)[0]);
 
 }
 
-var numberInput = document.querySelector('#conversion-form__input-number');
-var solutionButton = document.querySelector('.conversion-form__submit-btn');
-var solutionDiv = document.querySelector('.conversion-form__display-roman-numeral');
+var inputNumber = document.querySelector('#js__input-number');
+var submitBtn = document.querySelector('.js__submit-btn');
+var displayRomanNumeral = document.querySelector('.js__display-roman-numeral');
 
 
-solutionButton.addEventListener('click', () => {
+submitBtn.addEventListener('click', () => {
   var output = "";
 
   try {
-    output = numberToRomanNumeral(numberInput.value);
+    output = numberToRomanNumeral(inputNumber.value);
   }
   catch (err) {
     output = "WARNING: " + err;
   }
 
-  solutionDiv.textContent = output;
+  displayRomanNumeral.textContent = output;
 });
