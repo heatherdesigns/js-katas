@@ -4,12 +4,48 @@
 
 // each player rolls five six sided dice
 let initialRoll = roll5();
-document.write("The results of your first roll of dice are " + initialRoll[0] + ", " + initialRoll[1] + ", " + initialRoll[2] + ", " + initialRoll[3] + " and " + initialRoll[4] + ".");
+let response = prompt("The results of your first roll of dice are "
+                      + initialRoll[0] + ", " + initialRoll[1] + ", "
+                      + initialRoll[2] + ", " + initialRoll[3] + " and "
+                      + initialRoll[4] + ". Would you like to roll again? "
+                      + "Enter 'yes' or 'no'.");
+
+document.write("The results of your first roll of dice are "
+                      + initialRoll[0] + ", " + initialRoll[1] + ", "
+                      + initialRoll[2] + ", " + initialRoll[3] + " and "
+                      + initialRoll[4] + ".");
 
 //The player may choose to reroll some or all of the dice up to three times (including the original roll.)
-let response = prompt("Would you like to roll again? \nEnter 'yes' or 'no'.");
+// let response = prompt("Would you like to roll again? \nEnter 'yes' or 'no'.");
 if (response == "yes" || repsponse == "Yes"){
+
   let reroll = prompt("How many dice would you like to reroll?");
+
+  if (reroll == 5 || reroll == "five" || reroll == "Five"){
+    let secondlRoll = roll5();
+    alert("The results of your second roll of dice are " + secondlRoll[0] + ", " + secondlRoll[1] + ", " + secondlRoll[2] + ", " + secondlRoll[3] + " and " + secondlRoll[4] + ".");
+  }
+  else if (reroll == 4){
+    let eliminatedDie1 = prompt("Enter the number of the first die you would like to remove.");
+    let eliminatedDie2 = prompt("Enter the number of the second die you would like to remove.");
+    let eliminatedDie3 = prompt("Enter the number of the third die you would like to remove.");
+    let eliminatedDie4 = prompt("Enter the number of the last die you would like to remove.");
+
+    if (eliminatedDie == initialRoll[0]){
+
+    }
+    secondRoll = roll4();
+    // display new roll
+  }
+  else if (reroll == 3){
+    roll3();
+  }
+  else if (reroll == 2){
+    roll2();
+  }
+  else {
+    rollDie();
+  }
 }
 
 function roll5() {
