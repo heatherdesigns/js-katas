@@ -31,13 +31,13 @@ let ones = findOnes(Object.values(tens)[0]);
   }
 
 	function findThousands(number){
-		let roman_numeral = "";
+		let roman_numeral = "";                     // moved roman numeral inside function
     while (number >= 1000 && number < 10000) {
 			roman_numeral += "M";
 			number -= 1000;
 		}
 		let numRomanSet = { num: number, roman: roman_numeral };
-    return numRomanSet;
+    return numRomanSet;                         // return an object
 	}
 	console.log("num thousands: " + Object.values(thousands)[0]);
 	console.log("roman numeral thousands: " + Object.values(thousands)[1]);
@@ -138,7 +138,7 @@ let ones = findOnes(Object.values(tens)[0]);
 
 }
 
-var inputNumber = document.querySelector('#js__input-number');
+var inputNumber = document.querySelector('#js__input-number');      // update variable, id & class names
 var submitBtn = document.querySelector('.js__submit-btn');
 var displayRomanNumeral = document.querySelector('.js__display-roman-numeral');
 

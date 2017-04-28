@@ -10,11 +10,6 @@ let response = prompt("The results of your first roll of dice are "
                       + initialRoll[4] + ". Would you like to roll again? "
                       + "Enter 'yes' or 'no'.");
 
-document.write("The results of your first roll of dice are "
-                      + initialRoll[0] + ", " + initialRoll[1] + ", "
-                      + initialRoll[2] + ", " + initialRoll[3] + " and "
-                      + initialRoll[4] + ".");
-
 //The player may choose to reroll some or all of the dice up to three times (including the original roll.)
 // let response = prompt("Would you like to roll again? \nEnter 'yes' or 'no'.");
 if (response == "yes" || repsponse == "Yes"){

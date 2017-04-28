@@ -3,10 +3,12 @@
 * April 11, 2017
 */
 
-class NumberToRomanNumeral {
+class NumberToRomanNumeral {     // now a class, was a function
 	constructor (number) {
 		this.num = number;
 	}
+
+	// removed global variable representing the roman numeral
 
 	get isOutsideRange(){
 		if (this.num > 9999 || this.num <= 0) {
@@ -21,7 +23,7 @@ class NumberToRomanNumeral {
 			this.num -= 1000;
 		}
 		let numRomanSet = { num: this.num, roman: roman_numeral };
-		return numRomanSet;
+		return numRomanSet;  // functions now return an object
 	}
 
 	get findHundreds() {
